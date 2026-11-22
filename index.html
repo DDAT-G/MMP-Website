@@ -41,6 +41,32 @@
 
     h2 { color: #c7b6ff; }
 
+    .hero-actions { margin-top: 32px; }
+    .try-mmp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 28px;
+      border-radius: 12px;
+      background: linear-gradient(110deg, #27df8c, #5ccbe4);
+      color: #091425;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 800;
+      box-shadow: 0 12px 32px rgba(39, 223, 140, 0.22);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .try-mmp-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(39, 223, 140, 0.32);
+    }
+    .try-mmp-button:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 4px;
+    }
+    .hero-note { color: #c6cfe3; font-size: 13px; margin: 13px 0 0; }
+
     .subtitle {
       font-size: 20px;
       color: #e0d9f6;
@@ -88,6 +114,12 @@
     <p>생성형 AI 기반 음악 플레이리스트 추천 및 관리 플랫폼</p>
     <p>사용자의 음악 취향과 상황을 자연어로 입력하여<br>
        맞춤형 플레이리스트를 생성하는 웹 애플리케이션</p>
+    <div class="hero-actions">
+      <a class="try-mmp-button" href="https://mmp-zw0z.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="실제 MMP 웹 서비스 새 창에서 열기">
+        ▶ MMP 체험하기
+      </a>
+      <p class="hero-note">공개 테스트 서비스 · 일부 AI 추천 기능은 현재 점검 중입니다.</p>
+    </div>
   </header>
 
   <main class="container">
