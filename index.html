@@ -103,24 +103,39 @@
       text-align: center;
       color: #aab2cb;
     }
-  </style>
+  
+header.hero{position:relative;isolation:isolate;overflow:hidden;min-height:595px;display:grid;place-items:center;padding:90px 24px 104px;background:#091620;text-align:center;}
+.hero-photo{position:absolute;inset:-18px;z-index:-2;background-image:url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAEMuMjoyKkM6NjpLR0NPZKZsZFxcZMySmnmm8dT++u3U6eX//////////+Xp////////////////////////////2wBDAUdLS2RXZMRsbMT//+n///////////////////////////////////////////////////////////////////////wgARCACVAUADASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECA//EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHnmxEFWVAAUsDRMtwy3Tm6Jebqs5Ow4u1ODuOF7ReTtDlO0OTqOTdOdCIAKlRvHVc10OdUFSTpkl1C8e3NbmbiEstgXNVz6ZTLQy0MzcM6QllXIAKlSduVXrrj0FguRKgqCxlc2SOrnqqgqCyZTo52NM0txDfOyms6XIAFlSazpdXJNyCoKgqBhpdc95M2DozQiCKqCwIsAGs6MgAWVAUAAgqCoKgqACpQ1lAUABKIompTIAAKUiwAiiKIoiiKIolDWRBFqCoKgqCggAAKEAAAAAAAAAABQAAAAIAACtQi0yoyAAABYKgpSNZCiKI2MNwyozZSKIsANMk0yXTI0yKgqCp0MEKgqCoKgqCoKgoCUgAAAAAAAAAAAAAAAAAAFD//xAAiEAADAAEEAgIDAAAAAAAAAAAAARExEBIgMEBQIUECQnD/2gAIAQEAAQUCnjwhCEIQjIQhOKL4a6qUpSlKXRizz+JPnaJEIQ2kJpDHS8dC0WeaaR+wsCPo+9PoXQ8EZGQhCE1WelZWB9N6KbjcUpTcbtVnnXKJlL0PVeCs+nWfDWj1Xes+nWfKnavLv80pSm5lL33iuD64QhCaQnrvxg8+7//EABgRAQEAAwAAAAAAAAAAAAAAABEAQFBw/9oACAEDAQE/AdGzOERHD//EABQRAQAAAAAAAAAAAAAAAAAAAHD/2gAIAQIBAT8BSP/EACEQAAIABgEFAAAAAAAAAAAAAAAxEBEgIUBQQQFgYYCB/9oACAEBAAY/Au176hjhwcUvPl4PmnkdJF8ZCEL2HQoIQq1vr73/xAAoEAADAAIBAwQCAQUAAAAAAAAAAREhUTEQMEEgQGFxgZFQobHB0eH/2gAIAQEAAT8hVrknyhqa78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");background-position:center 40%;background-size:cover;opacity:.65;filter:blur(2px);transform:scale(1.06);}
+header.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,12,20,.82),rgba(5,14,22,.62) 50%,rgba(5,11,20,.84)),linear-gradient(0deg,rgba(5,14,23,.83),transparent 54%,rgba(6,15,25,.3));}
+.hero-content{max-width:800px;text-shadow:0 2px 16px #0008;}
+.hero h1{font-size:clamp(68px,10vw,108px);line-height:1.16;margin:20px 0 12px;}
+.hero .subtitle{font-size:clamp(19px,3vw,25px);color:#e9fff2;}
+.hero .tag{color:#a9ffd6;}
+.launch-container{max-width:990px;margin:-44px auto 12px;padding:0 24px;position:relative;z-index:2;}
+.launch-panel{padding:24px 28px;border:1px solid #32524c;border-radius:18px;background:#17232b;box-shadow:0 15px 50px #0005;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.launch-panel strong{display:block;font-size:20px;}
+.launch-panel p{margin:2px 0 0;color:#b7c7cd;font-size:13px;}
+.launch-panel .try-mmp-button{white-space:nowrap;}
+.js-reveals .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.68,.2,1);}
+.js-reveals .reveal.is-visible{opacity:1;transform:none;}
+.card{transition:border-color .2s,box-shadow .2s;}
+.card:hover{border-color:#35705c;box-shadow:0 12px 30px #0003;}
+@media(max-width:680px){header.hero{min-height:530px;padding:78px 22px 100px;}.launch-panel .try-mmp-button{width:100%;}.launch-panel{padding:20px;}}
+@media(prefers-reduced-motion:reduce){.js-reveals .reveal{opacity:1;transform:none;transition:none;}}
+</style>
 </head>
 
 <body>
-  <header>
-    <div class="tag">CAPSTONE DESIGN PROJECT</div>
-    <h1>MMP</h1>
-    <p class="subtitle">AI Music Playlist Generator</p>
-    <p>생성형 AI 기반 음악 플레이리스트 추천 및 관리 플랫폼</p>
-    <p>사용자의 음악 취향과 상황을 자연어로 입력하여<br>
-       맞춤형 플레이리스트를 생성하는 웹 애플리케이션</p>
-    <div class="hero-actions">
-      <a class="try-mmp-button" href="https://mmp-zw0z.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="My Mood Playlist 웹사이트 새 창에서 열기">
-        My Mood Playlist로 이동 ↗
-      </a>
-      <p class="hero-note">공개 테스트 서비스 · 일부 AI 추천 기능은 현재 점검 중입니다.</p>
-    </div>
-  </header>
+  <header class="hero"><div class="hero-photo" aria-hidden="true"></div><div class="hero-content">
+<div class="tag">CAPSTONE DESIGN PROJECT</div>
+<h1>MMP</h1><p class="subtitle">My Mood Playlist</p>
+<p>생성형 AI 기반 음악 플레이리스트 추천 및 관리 플랫폼</p>
+<p>사용자의 음악 취향과 상황을 자연어로 입력하여<br>맞춤형 플레이리스트를 생성하는 웹 애플리케이션</p>
+</div></header>
+<div class="launch-container"><div class="launch-panel">
+<div><strong>My Mood Playlist 웹사이트</strong><p>공개 테스트 서비스 · AI 추천 기능은 현재 점검 중입니다.</p></div>
+<a class="try-mmp-button" href="https://mmp-zw0z.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="My Mood Playlist 웹사이트 새 창에서 열기">My Mood Playlist로 이동 ↗</a>
+</div></div>
 
   <main class="container">
     <section>
@@ -246,5 +261,16 @@
 </footer>
 
 
-</body>
+<script>
+(() => {
+ const nodes=document.querySelectorAll('main section, main .card');
+ if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ document.documentElement.classList.add('js-reveals');
+ nodes.forEach(n=>n.classList.add('reveal'));
+ const observer=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target);}
+ }),{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+ nodes.forEach(n=>observer.observe(n));
+})();
+</script></body>
 </html>
