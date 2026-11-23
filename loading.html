@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09151b">
+  <meta name="robots" content="noindex">
+  <title>My Mood Playlist | 연결 중</title>
+  <style>
+    :root{color-scheme:dark}
+    *{box-sizing:border-box}
+    body{
+      margin:0;min-height:100vh;min-height:100dvh;display:grid;place-items:center;
+      padding:28px;background:
+      radial-gradient(ellipse at 50% 29%,rgba(43,222,154,.14),transparent 47%),
+      linear-gradient(155deg,#071019,#11232a 58%,#0b111b);
+      color:#f4faf9;font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      text-align:center
+    }
+    main{width:min(100%,630px);padding:58px 20px}
+    .eyebrow{color:#8bf2c6;letter-spacing:.22em;font-weight:750;font-size:12px}
+    .brand{font-size:clamp(50px,9vw,86px);line-height:1.08;font-weight:850;letter-spacing:.04em;margin:14px 0 8px}
+    .name{color:#bed8d3;font-size:17px;margin:0 0 42px}
+    .bars{height:72px;display:flex;gap:8px;justify-content:center;align-items:center;margin:0 auto 30px}
+    .bars span{display:block;width:9px;height:16px;background:linear-gradient(#59d7da,#29e295);border-radius:7px;animation:beat 1.15s ease-in-out infinite alternate;box-shadow:0 0 20px rgba(41,226,149,.17)}
+    .bars span:nth-child(2){animation-delay:-.38s}
+    .bars span:nth-child(3){animation-delay:-.73s}
+    .bars span:nth-child(4){animation-delay:-.19s}
+    .bars span:nth-child(5){animation-delay:-.56s}
+    @keyframes beat{0%{height:12px;opacity:.65}100%{height:63px;opacity:1}}
+    h1{font-size:clamp(22px,4.5vw,30px);line-height:1.45;margin:0 0 12px}
+    .description{font-size:15px;line-height:1.85;color:#b5c7cf;margin:0 auto 12px}
+    .help{font-size:13px;line-height:1.7;color:#8da9b2;max-width:460px;margin:12px auto 0}
+    .actions{display:flex;justify-content:center;align-items:center;gap:14px;margin:35px auto 0;flex-wrap:wrap}
+    a{display:inline-flex;align-items:center;justify-content:center;border-radius:11px;
+      padding:12px 18px;text-decoration:none;font-size:14px;font-weight:700;min-height:48px}
+    a.primary{background:linear-gradient(110deg,#24d68b,#61d6d2);color:#06231b}
+    a.secondary{border:1px solid #3b565b;color:#dcece9;background:rgba(16,30,37,.5)}
+    a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+    .timeout{color:#ffdfad;margin:17px auto 0;font-size:13px;line-height:1.7;max-width:490px}
+    [hidden]{display:none!important}
+    @media(prefers-reduced-motion:reduce){.bars span{animation:none;height:24px}}
+  </style>
+</head>
+<body>
+<main aria-live="polite">
+  <div class="eyebrow">MMP · CAPSTONE DESIGN PROJECT</div>
+  <div class="brand">MMP</div>
+  <p class="name">My Mood Playlist</p>
+  <div class="bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  <h1 id="heading">사이트로 이동 중입니다…</h1>
+  <p class="description" id="message">My Mood Playlist 서버의 연결 상태를 확인하고 있어요.<br>준비가 완료되면 자동으로 이동합니다.</p>
+  <p class="help">무료 서버는 일정 시간 접속이 없으면 잠시 쉬기 때문에 첫 연결이 조금 느릴 수 있어요.</p>
+  <p class="timeout" id="takingLong" hidden>예상보다 연결이 늦어지고 있어요. 아래 버튼으로 직접 접속하거나 소개 페이지로 돌아갈 수 있습니다.</p>
+  <div class="actions">
+    <a class="primary" href="https://mmp-zw0z.onrender.com/">사이트 직접 열기 ↗</a>
+    <a class="secondary" href="index.html">소개 페이지로 돌아가기</a>
+  </div>
+  <noscript><p class="help">자동 연결을 위해 JavaScript가 필요합니다. 위의 '사이트 직접 열기'를 눌러 주세요.</p></noscript>
+</main>
+<script>
+(() => {
+  const target = 'https://mmp-zw0z.onrender.com/';
+  const readyEndpoint = target + 'health';
+  const start = Date.now();
+  let redirected = false;
+  async function checkReady() {
+    if (redirected) return;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+    try {
+      const response = await fetch(readyEndpoint + '?_=' + Date.now(), {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-store',
+        credentials: 'omit',
+        signal: controller.signal
+      });
+      if (response.ok) {
+        const data = await response.json();
+        if (data && data.status === 'ok') {
+          redirected = true;
+          document.getElementById('heading').textContent = '서버 연결 완료!';
+          document.getElementById('message').textContent = 'My Mood Playlist로 이동하고 있습니다.';
+          window.location.replace(target);
+          return;
+        }
+      }
+    } catch (_error) {
+      // The Render free server can return a temporary response while waking up.
+    } finally {
+      clearTimeout(timeout);
+    }
+    if (Date.now() - start > 45000) {
+      document.getElementById('takingLong').hidden = false;
+    }
+    if (!redirected) setTimeout(checkReady, 2000);
+  }
+  checkReady();
+})();
+</script>
+</body>
+</html>
